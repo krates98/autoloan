@@ -1,0 +1,60 @@
+<%- include("../partials/header") %>
+<div class="col-sm-9">
+        
+    <table class="table table-striped">
+        <tr>
+            <th>Date Added</th>
+            <th>Event</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Account</th>
+            <th>Notes</th>
+        </tr>
+<% transa.reverse().forEach(function(apple){ %>
+
+    <tr>
+        <td>
+            <%= apple.date %>
+        </td>
+        <td>
+            <%= apple.event %>
+        </td>
+        <td>
+            <%= apple.amount %>
+        </td>
+        <td>
+            <%= apple.transtype %>
+        </td>
+        <td>
+            <%= apple.account %>
+        </td>
+        <td>
+            <%= apple.notes %>
+        </td>
+
+    </tr>
+
+<% }) %>
+<tr class="bg-warning">
+    <td colspan="2">
+        PNL/MONTH
+    </td>
+    <td colspan="6" >
+        <% var monin=0; %>
+        <% var monout=0; %>
+        <% var total=0; %>
+        <% transa.forEach(function(apple){ %>
+            <% if(apple.transtype === "Credit"){ %>
+            <% monin += apple.amount %>
+            <% } else { %>
+            <% monout += apple.amount %>
+            <% } %>
+        <% }) %>
+        <% total = monin-monout %>
+        <%= total %>
+    </td>
+</tr>
+</table>
+</div>
+</div>
+<%- include("../partials/footer") %></input>

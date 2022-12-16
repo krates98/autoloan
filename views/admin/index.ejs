@@ -1,0 +1,58 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container">
+        
+        <input type="hidden" id="ds1" value="<%= dat[0] %>">
+        <input type="hidden" id="ds2" value="<%= dat[1] %>">
+        <input type="hidden" id="ds3" value="<%= dat[2] %>">
+        <input type="hidden" id="ds4" value="<%= dat[3] %>">
+        <input type="hidden" id="ds5" value="<%= dat[4] %>">
+        <input type="hidden" id="dc1" value="<%= dac[0] %>">
+        <input type="hidden" id="dc2" value="<%= dac[1] %>">
+        <input type="hidden" id="dc3" value="<%= dac[2] %>">
+        <input type="hidden" id="dc4" value="<%= dac[3] %>">
+        <input type="hidden" id="dc5" value="<%= dac[4] %>">
+
+        <canvas id="myChart" width="900" height="380"></canvas>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script type="text/javascript" >
+        var ctx = document.getElementById('myChart');
+        var inputVal1 = document.getElementById("ds1").value;
+        var inputVal2 = document.getElementById("ds2").value;
+        var inputVal3 = document.getElementById("ds3").value;
+        var inputVal4 = document.getElementById("ds4").value;
+        var inputVal5 = document.getElementById("ds5").value;
+        var inputVal6 = document.getElementById("dc1").value;
+        var inputVal7 = document.getElementById("dc2").value;
+        var inputVal8 = document.getElementById("dc3").value;
+        var inputVal9 = document.getElementById("dc4").value;
+        var inputVal0 = document.getElementById("dc5").value;
+        var xab = [inputVal5,inputVal4,inputVal3,inputVal2,inputVal1];
+        var xac = [inputVal0,inputVal9,inputVal8,inputVal7,inputVal6];
+        
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xab,
+                datasets: [{
+                    label: '# Of Sets Completed',
+                    data: xac,
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderColor: 'rgba(115, 134, 213 , 0.5)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+    </div>
+</div>
+</div>
+
+    
+    
+ <%- include("../partials/footer") %>
+    

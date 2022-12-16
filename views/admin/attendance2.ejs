@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+<% var attcount; %>
+ <div class="container">
+        <table class="table table-dark">
+            <th>
+                Username
+            </th>
+            <%  for(var i=1;i<=daysd;i++){ %>    
+                <%  if(i<10){ xax = "0"+i.toString(); } else{ %>
+                        <%     xax = i.toString(); } %>
+                        <%   xax = xax + "/"+ lasm +"/" + durm; %>
+                        <th><%= xax.substring(0, 2) %></th>
+                <% arr.push(xax); %>
+                <% } %>
+        <% for(var i=1;i<worker.length;i++){ %>
+            <tr>
+                <td>
+            <%= worker[i].username %>
+                </td>
+                
+                <% for(var j=0;j<arr.length;j++){ %>
+                    <% attcount = dates.filter(x => x.date == arr[j] && x.username == worker[i].username) %>
+                        <% if(attcount && attcount.length){ %>         
+                            <%   cx++; %>
+                        <% } %>
+                <%  if(cx > 0){ %><td class="bg-primary">P</td> <%} else { %>
+                    <td class="bg-danger">A</td>        
+                </td>
+                <%  } %>
+                <% cx = 0;%> 
+                <%  } %>
+            </tr>
+            
+            <% } %>
+    </table>
+    </div>
+</div>
+</div> 
+    
+    
+ <%- include("../partials/footer") %>
+    

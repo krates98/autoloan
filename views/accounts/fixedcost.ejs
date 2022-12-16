@@ -1,0 +1,85 @@
+<%- include("../partials/header") %>
+<div class="col-sm-10">
+    <div class="container">
+        
+    <form action="/accounts/fixedcost" method="POST">
+        <div class="row">
+        <div class="col-sm">
+        <label for="rent" class="lablu">Rent:</label>
+        <input type="number" name="rent" id="rent" value="<%= cost[0].rent %>">
+        <br>
+        <label for="officeboy" class="lablu">OfficeBoy:</label>
+        <input type="number" name="officeboy" id="officeboy" value="<%= cost[0].officeboy %>">   
+        <br>
+        <label for="guard" class="lablu">Guard:</label>
+        <input type="number" name="guard" id="guard" value="<%= cost[0].guard %>">   
+        <br>
+        <label for="generator" class="lablu">Generator:</label>
+        <input type="number" name="generator" id="generator" value="<%= cost[0].generator %>">   
+        <br>
+        <label for="maid" class="lablu">Maid:</label>
+        <input type="number" name="maid" id="maid" value="<%= cost[0].maid %>">   
+        <br>
+        <label for="elecfix" class="lablu">Elecfix:</label>
+        <input type="number" name="elecfix" id="elecfix" value="<%= cost[0].elecfix %>">   
+        <br>
+        <label for="elecran" class="lablu">Elecran:</label>
+        <input type="number" name="elecran" id="elecran" value="<%= cost[0].elecran %>">   
+        <br>
+        <label for="diesel" class="lablu">Diesel:</label>
+        <input type="number" name="diesel" id="diesel" value="<%= cost[0].diesel %>">   
+        <br>
+        <label for="tead" class="lablu">Tea day:</label>
+        <input type="number" name="tead" id="tead" value="<%= cost[0].tead %>">   
+        <br>
+        </div>
+        <div class="col-sm">
+        <label for="tean" class="lablu">Tea Night:</label>
+        <input type="number" name="tean" id="tean" value="<%= cost[0].tean %>">   
+        <br>
+        <label for="dsl" class="lablu">DSL:</label>
+        <input type="number" name="dsl" id="dsl" value="<%= cost[0].dsl %>">   
+        <br>
+        <label for="emails" class="lablu">Emails:</label>
+        <input type="number" name="emails" id="emails" value="<%= cost[0].emails %>">   
+        <br>
+        <label for="fkref" class="lablu">Fkref:</label>
+        <input type="number" name="fkref" id="fkref" value="<%= cost[0].fkref %>">   
+        <br>
+        <label for="traffic" class="lablu">Traffic:</label>
+        <input type="number" name="traffic" id="traffic" value="<%= cost[0].traffic %>">   
+        <br>
+        <label for="hosting" class="lablu">Hosting:</label>
+        <input type="number" name="hosting" id="hosting" value="<%= cost[0].hosting %>">   
+        <br>
+        <label for="domains" class="lablu">Domains:</label>
+        <input type="number" name="domains" id="domains" value="<%= cost[0].domains %>">   
+        <br>
+        <label for="misl" class="lablu">Misc:</label>
+        <input type="number" name="misl" id="misl" value="<%= cost[0].misl %>">   
+        <br>
+        <label for="salary" class="lablu">Salary:</label>
+        <input type="number" name="salary" id="salary" value="<%= cost[0].salary %>">   
+        <br>
+    </div>  </div> 
+    <hr>
+    <div>
+        <label for="earning" class="lablu">
+            <select name="currency">
+                <option>Earning</option>
+                <option>USD</option>
+            </select>    
+        </label>
+        <input type="number" name="earning" id="earning" value="<%= cost[0].earning %>">   
+        <br>
+    </div>
+    <hr>
+    <div >
+    <button class="btn btn-success">Submit</button>
+    
+</div>
+    </form>
+</div>
+</div>
+
+<%- include("../partials/footer") %>

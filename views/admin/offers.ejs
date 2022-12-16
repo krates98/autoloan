@@ -1,0 +1,108 @@
+<%- include("../partials/header") %>
+  
+<div class="container">
+    <table>
+    <% for(var i=0;i<offurl.length;i++){ %>
+        <tr>
+            <td>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"><strong><%= offurl[i].offername %></strong></label>
+            <form action="/admin/offers/<%=offurl[i]._id%>/?_method=DELETE" method="POST">
+            </div>
+        </td><td>
+                <div class="input-group input2">                
+                <input class="form-control formoffers" type="text" value="<%= offurl[i].offerurl %>" readonly>
+                </td><td>
+                <div class="input-group-append">
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+                    </form>
+                    <td>
+                    <form action="/admin/offers/<%=offurl[i]._id%>/" method="POST">
+                        <% if(offurl[i].toggle === false){ %>
+                        <div class="col-sm-1"><input class="btn btn-danger" type="submit" name="off" value="off"></div>    
+                        <% } else { %>
+                        <div class="col-sm-1"><input class="btn btn-success" type="submit" name="on" value="on"></div>
+                         <% } %>
+                    </form>
+                </td>
+                <td >
+                    <form action="/admin/offers/<%=offurl[i]._id%>/?_method=PUT" method="POST">
+                        <input type="number" min="1" max="10" name="pri" value="<%= offurl[i].priority %>">
+                </td>
+                <td>
+                        <input type="number" min="1" max="2" name="page" value="<%= offurl[i].page %>">
+                </td>
+                <td>
+                    <button class="btn btn-info">SET</button>
+                    </form>
+                </td>
+                  </div>
+                </div> 
+            </div>
+            
+        </div>
+    </tr>
+    <% } %>
+</table>
+    <hr>
+    <form action="/admin/offers" method="POST">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <h4>Add Offers </h4>
+        
+        <!-- Text input-->
+        <div id="itemsfor" class="form-group">
+          
+            <div class="margin-bottom">
+            <input id="textinput" name="offername" type="text" placeholder="Enter Name of Offer" class="form-control input-md">
+            <input id="textinput" name="offerurl" type="text" placeholder="Enter URL of Offer" class="form-control input-md">
+            
+            </div>
+        </div>
+        
+        <button class="btn btn-info">Submit</button>
+    </fieldset>
+</form>
+        
+       <hr>
+       <h4>Enter Page For Employee</h4>
+    <hr>
+        <form action="/admin/pageupdate" method="POST">
+              <div class="input-group input2">
+                <div class="input-group-prepend">
+                    <select class="usersalary" name="users">
+                <option value="selectuser">Select User</option>
+                <% for(var i=1;i<userdata.length;i++){ %>
+                    <option value="<%= userdata[i].username %>"><%= userdata[i].username %></option>
+                <% } %>
+              </select>
+                  </div>
+                  <input type="number" min="1" max="2" name="page" value="1">               
+                <div class="input-group-append">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+        </form>
+            <hr>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                      <th scope="col">Username</th>
+                      <th scope="col">Page</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+
+            
+            <% for(var i=1;i<userdata.length;i++){ %>
+               <tr><td><%= userdata[i].username %></td><td><%= userdata[i].page %></td></tr>
+            <% } %>
+        </table>
+        </div>
+
+
+
+<%- include("../partials/footer") %>

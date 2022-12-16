@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+<% var add = [], bg=0, total=0 %>
+            <div class="container">
+                <table class="table">
+                    <tr>
+                        <th>Count</th>
+                        <th>Date</th>
+                        <th>Username</th>
+                        <th>IP</th>
+                        <th>Diff</th>
+                        <th>Time</th>
+                    </tr>
+            <% ipdata.forEach(function(campground,index){ %>
+                <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= campground.date %></td>
+                    <td><%= campground.username %></td>
+                    <td><%= campground.ipaddress %></td>
+                    <td><%= min[index] %></td>
+                    <% add.push(min[index]) %>
+                    <% total++ %>
+                    <td><%= campground.time %></td>
+                </tr>
+            <% }); %>
+                </table>
+                <% for(var i=0;i<add.length-1;i++){ %>
+                    <% bg+= add[i]%>
+                <% } %>
+                <p>Average Time: <%= bg/total %></p>
+        </div>
+    
+ <%- include("../partials/footer") %>
+    

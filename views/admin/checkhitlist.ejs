@@ -1,0 +1,49 @@
+<%- include("../partials/header") %>
+<% var rowsum; %>
+<% var colsum=0; %>
+<% var colsum1=0; %>
+<% var colsum2=0; %>
+<% var colsum3=0; %>
+<% var colsum4=0; %>
+<% var colsum5=0; %>
+<div class="container">
+    <table class="table table-dark">
+        <th>Username</th>
+        <th>Offer 1</th>
+        <th>Offer 2</th>
+        <th>Offer 3</th>
+        <th>Offer 4</th>
+        <th>Offer 5</th>
+        <th>Total</th>
+        <% for(i=1;i<workers.length;i++) { %>
+            <tr>
+            <td><%= workers[i].username %></td>        
+            <td><%= off1arr[i-1] %></td>
+            <td><%= off2arr[i-1] %></td>
+            <td><%= off3arr[i-1] %></td>
+            <td><%= off4arr[i-1] %></td>
+            <td><%= off5arr[i-1] %></td>
+            <% rowsum = off1arr[i-1]+off2arr[i-1]+off3arr[i-1]+off4arr[i-1]+off5arr[i-1]; %>
+            <td><%= rowsum %></td>
+            </tr>
+            <% colsum1+= off1arr[i-1] %>
+            <% colsum2+= off2arr[i-1] %>
+            <% colsum3+= off3arr[i-1] %>
+            <% colsum4+= off4arr[i-1] %>
+            <% colsum5+= off5arr[i-1] %>
+            <% } %>
+            <% colsum = colsum1+colsum2+colsum3+colsum4+colsum5 %>
+            <tr>
+                <td>Total</td>
+                <td><%= colsum1 %></td>
+                <td><%= colsum2 %></td>
+                <td><%= colsum3 %></td>
+                <td><%= colsum4 %></td>
+                <td><%= colsum5 %></td>
+                <td><%= colsum %></td>
+            </tr>
+       </table>
+    </div>
+
+ <%- include("../partials/footer") %>
+    

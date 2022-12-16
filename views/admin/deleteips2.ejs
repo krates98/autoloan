@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+
+            <div class="container">
+                <table class="table">
+                <% found.forEach(function(campground,index){ %>
+                    <tr>
+                        <td><%= campground.date %></td>
+                        <td><%= campground.username %></td>
+                        <td><%= campground.ipaddress %></td>
+                        <td><%= campground.time %></td>
+                    </tr>
+                <% }); %>
+                    </table>
+                    <div class="userheading">
+                    <form action="/admin/deleteips/?_method=DELETE" method="POST">
+                        <button class="btn btn-danger" name="date" value="<%= date %>">Delete ALL IPs Listed Above</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+ <%- include("../partials/footer") %>
+    

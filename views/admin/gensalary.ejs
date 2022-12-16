@@ -1,0 +1,92 @@
+<%- include("../partials/header") %>
+<% var salcount %>
+<% var attvar = 0 %>
+<% var salsum = 0 %>
+    <div class="container">
+        <table class="table table-dark">
+            <th>
+                Username
+            </th>
+            <th>
+                Salary Till Date
+            </th>
+            <%  for(var i=1;i<=daysd;i++){ %>    
+                <%  if(i<10){ xax = "0"+i.toString(); } else{ %>
+                        <%     xax = i.toString(); } %>
+                        <%   xax = xax + "/"+ curm +"/" + durm; %>
+                <% arr.push(xax); %>
+                <% } %>
+        <% for(var i=1;i<worker.length;i++){ %>
+            <%    dsal = (worker[i].salary / daysm); %>
+            
+            <tr>
+                <td class="bg-info">
+            <%= worker[i].username %>
+                </td>
+                
+                    <% for(var j=0;j<arr.length;j++){ %>  
+                        <% salcount = dates.filter(x => x.date == arr[j] && x.username == worker[i].username) %>
+                        <% attvar = attrea.filter(x => x.date == arr[j] && x.username == worker[i].username) %>
+                        <% if(salcount && salcount.length){ %>
+                        <%   cx = cx + dsal %>
+                        <% }  %>
+                        <% if(attvar && attvar.length){ %>
+                            <% if(attvar[0].reason === "halfday" && cx>0){ %>
+                                <%   cx = cx - (dsal/2) %>
+                                <% }  %>
+                            <% if(attvar[0].reason === "holiday" || attvar[0].reason === "weekoff"){ %>
+                                <%   cx = cx + dsal %>
+                            <% }  %>
+                            <% if(attvar[0].reason === "doubleday" && cx>0){ %>
+                                <%   cx = cx + dsal + (Number(attvar[0].overtime) * (dsal/9)) %>
+                            <% }  %>
+                            <% if(attvar[0].reason === "overtime" && cx>0){ %>
+                                <%  cx = cx + (Number(attvar[0].overtime) * (dsal/9)) %>
+                            <% }  %>
+                        
+                        <% }  %>    
+                <%  } %>
+                <%  if(cx > 0){ %><td class="bg-info"><%= Math.round(cx) %></td> <%} else { %>
+                    <td class="table-secondary">0</td>        
+                </td>
+                
+                <%  } %>
+            </tr>
+            <% if(cx){ %>
+            <% salsum +=cx %>
+            <% } %>
+            <% cx = 0 %>
+            <% dsal = 0  %> 
+            <% } %>
+            <tr class="bg-primary">
+                <td>
+                    Total
+                </td>
+                <td>
+                    <%= Math.round(salsum) %>
+                </td>
+            </tr>
+    </table>
+    
+    <table class="table table-sm">
+        <th>Date</th>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Overtime Hours</th>
+        <% attrea.reverse().forEach(function(attr){ %>
+        <tr>
+            <td><%= attr.date %></td>
+            <td><%= attr.username %></td>
+            <td><%= attr.reason %></td>
+            <td><%= attr.overtime %></td>
+        </tr>
+ <%   }) %>
+    </table>
+</div>
+</div>
+</div> 
+    
+    
+
+<%- include("../partials/footer") %>
+    

@@ -1,0 +1,75 @@
+<%- include("../partials/header") %>
+
+<div class="container databuttons">
+
+<% if(currentUser.isAdmin || currentUser.isMod){ %>
+  
+    <div class="col-sm-12 modtop">
+    <table class="table table-sm">
+        <th>Date</th>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Overtime Hours</th>
+        <% attrea.forEach(function(attr){ %>
+        <tr>
+            <td><%= attr.date %></td>
+            <td><%= attr.username %></td>
+            <td><%= attr.reason %></td>
+            <td><%= attr.overtime %></td>
+        </tr>
+        <%   }) %>
+    </table>
+    <br />
+    <h5>Last Month</h5>
+    <br />
+    <table class="table table-sm">
+        <th>Date</th>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Overtime Hours</th>
+        <% dates.forEach(function(dat){ %>
+        <tr>
+            <td><%= dat.date %></td>
+            <td><%= dat.username %></td>
+            <td><%= dat.reason %></td>
+            <td><%= dat.overtime %></td>
+        </tr>
+        <%   }) %>
+    </table>
+    <br />
+    <h5>Yesterday Work Total</h5>
+    <br />
+    <% var counter = 0 %>
+  
+        <table class="table table-striped">
+            <tr>
+                <th>Username</th>
+                <th>Total</th>
+            </tr>
+            
+        <% for(var i=1;i<worker.length;i++){ %>
+            <tr>
+                <td><%= worker[i].username %></td>
+                <% today.forEach(function(campground,index){ %>
+                    <% if(worker[i].username === campground.username){ %>
+                    <%   counter++; %>
+                        <% } %>
+                <% })%>
+                <td><%= counter %></td>
+                <% counter = 0 %>
+        <% } %>
+            </tr>
+        </table>
+        
+        
+    </div>
+</div>
+
+
+    <% } else { %>
+    <div class="toprow">
+        <h1>Not Allowed</h1>
+    <% } %>
+</div>
+</div>
+<%- include("../partials/footer") %>

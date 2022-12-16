@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+  <table class="table">
+    <th>Emails</th>
+    <% if(EMAIL<2000) {%>
+    <th class="table-danger"><% } else {%></th>
+    <th><% } %> <%= EMAIL %></th>
+  </table>
+  <table class="table">
+    <th>States</th>
+    <th>Count</th>
+    <% for(let i=0;i<arr.length;i++){ %>
+    <% if(arr[i]<2000) {%>
+    <tr class="table-danger">
+      <% } else {%>
+    </tr>
+    <tr>
+      <% } %>
+      <td><%= states[i].name %></td>
+      <td><%= arr[i] %></td>
+    </tr>
+    <% } %>
+  </table>
+</div>
+
+<%- include("../partials/footer") %>

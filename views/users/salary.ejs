@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container" id="itemsfor">
+        <table class="table table-striped">
+            <tr>
+                <th>User</th>
+                <th>Salary</th>
+            </tr>
+            
+        <% for(var i=1;i<userdata.length;i++){ %>
+            <tr>
+          <td>  <%= userdata[i].username %></td><td><%= userdata[i].salary %></td>
+        </tr>
+        <% } %>
+        
+    </table>
+    <hr>
+        <form action="/users/salary" method="POST">
+              <div class="input-group input2">
+                <div class="input-group-prepend">
+                    <select class="usersalary" name="users">
+                <option value="selectuser">Select User</option>
+                <% for(var i=1;i<userdata.length;i++){ %>
+                    <option value="<%= userdata[i].username %>"><%= userdata[i].username %></option>
+                <% } %>
+              </select>
+                  </div>               
+                <input name="salary" type="text" placeholder="Enter Salary Of Employee" class="form-control form2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+            <hr>
+        </form>
+        
+</div>
+    
+    
+ <%- include("../partials/footer") %>
+    

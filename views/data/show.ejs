@@ -1,0 +1,185 @@
+<%- include("../partials/header") %>
+<div class="container">
+  <form>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">First Name:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.firstname %>"
+          onclick="myFunction(0)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Last Name:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.lastname %>"
+          onclick="myFunction(1)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Gender:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.gender %>"
+          onclick="myFunction(2)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Phone:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.phone %>"
+          onclick="myFunction(3)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">#:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(0, 3) %>"
+          onclick="myFunction(4)"
+          readonly />
+        <input
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(3, 6) %>"
+          onclick="myFunction(5)"
+          readonly />
+        <input
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(6, 10) %>"
+          onclick="myFunction(6)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Pin Code:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.zip %>"
+          onclick="myFunction(7)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Address:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.address %>"
+          onclick="myFunction(8)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">State:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.state %>"
+          onclick="myFunction(9)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">City:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.city %>"
+          onclick="myFunction(10)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">DD/MM/YYYY</label>
+      <div class="col-sm-9">
+        <input
+          id="myField"
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(0, 3) %>"
+          onclick="myFunction(11)"
+          readonly />
+        <input
+          id="myField2"
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(3, 6) %>"
+          onclick="myFunction(12)"
+          readonly />
+        <input
+          id="myField3"
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(6, 10) %>"
+          onclick="myFunction(13)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Age:</label>
+      <div class="col-sm-9">
+        <input
+          id="myField4"
+          class="form-control phone"
+          type="text"
+          value="<%= usadata.phone.substring(6, 10) %>"
+          onclick="myFunction(14)"
+          readonly />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Email:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.email %>"
+          onclick="myFunction(15)"
+          readonly />
+      </div>
+    </div>
+    <hr />
+  </form>
+
+  <div class="row" id="fetchdata">
+    <form target="_blank" action="/data/second/<%= tdata._id %>" method="POST">
+      <button class="btn btn-info btn-lg btn-block fetch">Get New Data</button>
+    </form>
+    <hr />
+
+    <div class="row" id="fetchdata">
+      <form action="/logout" method="GET">
+        <button class="btn btn-primary btn-lg btn-block fetch">
+          Fetch New Data
+        </button>
+      </form>
+    </div>
+
+    <!-- </div>  -->
+    <script src="/js/copy.js"></script>
+    <%- include("../partials/footer") %>
+  </div>
+</div>

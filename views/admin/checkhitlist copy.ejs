@@ -1,0 +1,73 @@
+<%- include("../partials/header") %>
+<% var wooo=0; %>
+<% var wooo1=0; %>
+<% var wooo2=0; %>
+<% var wooo3=0; %>
+<% var wooo4=0; %>
+<% var wooo5=0; %>
+<% var colsum=0; %>
+<% var colsum1=join.length;; %>
+<% var colsum2=join2.length;; %>
+<% var colsum3=join3.length;; %>
+<% var colsum4=join4.length;; %>
+<% var colsum5=join5.length; %>
+<% console.log(colsum1); %>
+<% console.log(colsum2); %>
+<% console.log(colsum3); %>
+<% console.log(colsum4); %>
+<% console.log(colsum5); %>
+<div class="container">
+    <table class="table table-dark">
+        <th>Username</th>
+        <th>Offer 1</th>
+        <th>Offer 2</th>
+        <th>Offer 3</th>
+        <th>Offer 4</th>
+        <th>Offer 5</th>
+        <th>Total</th>
+        <% for(i=1;i<workers.length;i++) { %>
+            <tr>
+            <td><%= workers[i].username %></td>
+            <% for(var j=0;j<join.length;j++){ %>
+            <%    if(workers[i].username === join[j].username){ %>
+            <%    wooo++ %>
+            <%    } %>
+            <%    }    %>
+            <td><%= wooo %></td>
+            <%  wooo=0; %>
+            <% for(var j=0;j<join2.length;j++){ %>
+            <%    if(workers[i].username === join2[j].username){ %>
+            <%    wooo1++ %>
+            <%    } %>
+            <%    }    %>
+            <td><%= wooo1 %></td>
+            <%  wooo1=0; %>
+            <% for(var j=0;j<join3.length;j++){ %>
+            <%    if(workers[i].username === join3[j].username){ %>
+            <%    wooo2++ %>
+            <%    } %>
+            <%    }    %>
+            <td><%= wooo2 %></td>
+            <%  wooo2=0; %>
+            <% for(var j=0;j<join4.length;j++){ %>
+            <%    if(workers[i].username === join4[j].username){ %>
+            <%    wooo3++ %>
+            <%    } %>
+            <%    }    %>
+            <td><%= wooo3 %></td>
+            <%  wooo3=0; %>
+            <% for(var j=0;j<join5.length;j++){ %>
+            <%    if(workers[i].username === join5[j].username){ %>
+            <%    wooo4++ %>
+            <%    } %>
+            <%    }    %>
+            <td><%= wooo4 %></td>
+            <%  wooo4=0; %>
+
+        </tr>
+            <% } %>
+       </table>
+    </div>
+
+ <%- include("../partials/footer") %>
+    

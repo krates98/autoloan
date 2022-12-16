@@ -1,0 +1,157 @@
+<%- include("../partials/header") %>
+<div class="col-lg-9 col-md-12">
+    
+        <h4>Input Transaction</h4>
+    <form action="/accounts/transactions" method="POST">
+
+    <table class="table">
+        <tr>
+            <th>Event</th>
+            <th>Amount</th>
+            <th>CR/DB</th>
+            <th>Currency</th>
+            <th>Account</th>
+            <th>Sent By/To</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>
+    <select id = "event" name = "event" onchange = "if ($('#event').val() == 'Others') { $('#haad').show(); } else { $('#haad').hide(); }">
+        <option>Income</option>
+        <option>Withdrawal</option>
+        <option>Charge</option>
+        <option>Tax</option>
+        <option>DSL</option>
+        <option>Emails</option>
+        <option>Fkref</option>
+        <option>Electricity</option>
+        <option>Tea</option>
+        <option>Traffic</option>
+        <option>Hosting</option>
+        <option>Domains</option>
+        <option>Diesel</option>
+        <option class="hoop">Others</option>
+    </select>
+    <input type="text" name="other" class="amput" id="haad">
+</td>
+    <td>
+        <input type="number" placeholder="1.0" step="0.01" min="0" max="5000000" name="amount" class="amount" required>
+    </td>
+    <td>
+        <select name="type" >
+            <option>Debit</option>
+            <option>Credit</option>
+        </select>
+    </td>
+    <td>
+        <select name="currency" >
+            <option>INR</option>
+            <option>USD</option>
+        </select>
+    </td>
+    <td>
+        <select name="account" >
+            <option>Exirv</option>
+            <option>IJP</option>
+            <option>Techlab</option>
+            <option>Acqkuire</option>
+            <option>Cynapsos</option>
+            <option>Suyash</option>
+            <option>Kushagra</option>
+        </select>
+    </td>
+    <td>
+        <select name="sent" >
+            <option>Direct</option>
+            <option>Exirv</option>
+            <option>IJP</option>
+            <option>Techlab</option>
+            <option>Acqkuire</option>
+            <option>Cynapsos</option>
+            <option>Suyash</option>
+            <option>Kushagra</option>
+        </select>
+    </td>
+    <td>
+        <input type="text" name="notes" class="amput" required>
+    </td>
+</tr>
+<tr>
+    <td colspan="8">
+    <button class="btn btn-success">Submit</button>
+    </td>
+</tr>
+</table>
+    
+    </form>
+    <table class="table table-striped">
+        <tr>
+            <th>Date Added</th>
+            <th>Event</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Account</th>
+            <th>Notes</th>
+            <th>Changes</th>
+        </tr>
+<% transa.reverse().forEach(function(apple){ %>
+
+    <tr>
+        <td>
+            <%= apple.date %>
+        </td>
+        <td>
+            <%= apple.event %>
+        </td>
+        <td>
+            <%= apple.amount %>
+        </td>
+        <td>
+            <%= apple.transtype %>
+        </td>
+        <td>
+            <%= apple.account %>
+        </td>
+        <td>
+            <%= apple.notes %>
+        </td>
+
+        <td>
+            <div class="inline-item">
+            <a href="/accounts/edit/<%=apple._id%>"><button class="btn btn-info edit">EDIT</button></a>
+            <form class="form-inline" action="/accounts/delete/<%=apple._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">DELETE</button>
+        </form>
+        </div>
+        </td>
+
+    </tr>
+
+<% }) %>
+<tr class="bg-warning">
+    <td colspan="2">
+        PNL/MONTH
+    </td>
+    <td colspan="6" >
+        <% var monin=0; %>
+        <% var monout=0; %>
+        <% var total=0; %>
+        <% transa.reverse().forEach(function(apple){ %>
+            <% if(apple.transtype === "Credit"){ %>
+            <% monin += apple.amount %>
+            <% } else { %>
+            <% monout += apple.amount %>
+            <% } %>
+        <% }) %>
+        <% total = monin-monout %>
+        <%= total.toFixed(2) %>
+    </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script src="/js/input.js">
+</script>
+
+<%- include("../partials/footer") %></input>

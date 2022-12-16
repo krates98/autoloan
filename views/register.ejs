@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<% if(currentUser && currentUser.username === "krates"){ %>
+    <div class="col-sm-8 toprow">
+        <h3>Register</h3>
+        
+        <form action="/hiddenregister" method="POST">
+            <input class="form-control auth" type="text" name="username" placeholder="Username">
+            <input class="form-control auth" type="password" name="password" placeholder="password">
+            <button class="btn btn-primary">Sign Up</button>
+        </form>
+        </div>  
+
+<% } else { %>
+
+        <div class="toprow">
+            <h3>Register</h3>
+            
+            <form action="/hiddenregister" method="POST">
+                <input class="form-control auth" type="text" name="username" placeholder="Username">
+                <input class="form-control auth" type="password" name="password" placeholder=Password">
+
+                <button class="btn btn-primary">Sign Up</button>
+            </form>
+            </div>    
+    <% } %>
+
+
+
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,54 @@
+<%- include("../partials/header") %>
+<div class="col-sm-12 col-md-12 col-lg-10">
+   
+    <h4 class="heem">Select Month For Transactions</h4>
+    <form action="/accounts/bymonth" method="POST">
+        <select name="month" class="userwork">
+            <option value="01">January</option>
+            <option value="02">Febuary</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        <select class="userwork" name="year">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <hr class="my-4">
+    <h4 class="heem">Select Only Year For Balance</h4>
+    <form action="/accounts/byyear" method="POST">
+        <select class="userwork" name="year">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <hr class="my-4">
+    <h4 class="heem">Select Account For There Balance</h4>
+    <form action="/accounts/byaccount" method="POST">
+        <select class="userwork" name="account">
+            <option value="Suyash">Suyash</option>
+            <option value="Kushagra">Kushagra</option>
+            <option value="IJP">IJP</option>
+            <option value="Techlab">Techlab</option>
+            <option value="Exirv">Exirv</option>
+            <option value="Ackquire">Acqkuire</option>
+            <option value="Cynapsos">Cynapsos</option>
+        </select>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    </div>
+</div>
+</div>
+<%- include("../partials/footer") %>

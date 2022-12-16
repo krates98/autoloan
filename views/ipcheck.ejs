@@ -1,0 +1,22 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+    <div class="toprow">
+        <h3>iP Already Used</h3>
+        <% if(currentUser.dsl.length != 0) { %>
+
+            <div class="col-sm">
+                   
+                    <form action="/pages" method="get">
+                        <button class="btn btn-danger btn-lg btn-pad">Open Offer</button>  
+                    </form>
+                </a>
+            </div>
+        
+        <% } %>
+    </div>
+</div>
+
+
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,226 @@
+<%- include("../partials/header") %>
+<% if(currentUser.username !== "krates"){ %>
+    <% if(!currentUser.email){ %>
+    <form action="/users/<%= currentUser._id %>?_method=PUT" method="POST">
+        <hr>
+        <div><h5 class="userheading">User Details</h5></div>
+        <hr>
+        <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">First Name:</label>
+            <div class="col-sm-9">
+                <input name="firstname" class="form-control" type="text" placeholder="First Name" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Last Name:</label>
+                <div class="col-sm-9">
+                    <input name="lastname" class="form-control " type="text" placeholder="Last Name" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Email:</label>
+                <div class="col-sm-9">
+                    <input name="email" class="form-control " type="text" placeholder="Email" required>
+            </div>
+            </div>
+                
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Phone:</label>
+            <div class="col-sm-9">
+                <input name="phone" class="form-control" type="text" placeholder="Phone" required>
+            </div>
+            </div>
+            
+            
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">L Address:</label>
+            <div class="col-sm-9">
+                <input name="laddress" class="form-control" type="text" placeholder="Local Address" required>
+            </div>
+            </div>
+            
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">P Address:</label>
+            <div class="col-sm-9">
+                <input name="paddress" class="form-control " type="text" placeholder="Permanent Address" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Shift:</label>
+                <div class="col-sm-9">
+                    <select class="userprofile" name="shift">
+                        
+                        <option value="day">Day</option>
+                        <option value="night">Night</option>
+                        <option value="evening">Evening</option>
+                      </select>
+                </div>
+                </div>
+            <hr>
+            <div><h5 class="userheading">For Salary</h5></div>
+            <hr>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">* GooglePay:</label>
+            <div class="col-sm-9">
+                <input name="gpay" class="form-control " type="text" placeholder="GooglePay ID">
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">* PhonePe:</label>
+            <div class="col-sm-9">
+                <input name="phonepe" class="form-control " type="text" placeholder="PhonePe ID">
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">* Paytm:</label>
+            <div class="col-sm-9">
+                <input name="paytm" class="form-control " type="text" placeholder="Paytm ID">
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Bank Name:</label>
+            <div class="col-sm-9">
+                <input name="bankname" class="form-control " type="text" placeholder="Name Of Bank" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Account:</label>
+            <div class="col-sm-9">
+                <input name="bankacc" class="form-control " type="text" placeholder="Account Number" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Branch:</label>
+            <div class="col-sm-9">
+                <input name="bankbranch" class="form-control " type="text" placeholder="Bank Branch" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">IFSC:</label>
+            <div class="col-sm-9">
+                <input name="bankifsc" class="form-control " type="text" placeholder="IFSC" required>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Beneficiary:</label>
+            <div class="col-sm-9">
+                <input name="bankbene" class="form-control " type="text" placeholder="Beneficiary Name" required>
+            </div>
+            </div>
+            <hr>
+            <div ><h6 class="userheading">You wont be able to make changes after clicking submit so make sure of the details you have filled in! * Not Mandatory</h6></div>
+            <hr>
+            <div class="row" id="usersubmit">
+                    <button class="btn btn-primary btn-lg btn-block fetch">Submit</button>    
+            </div>
+            </form>
+    <% } else { %>
+    
+    <form>
+        <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">First Name:</label>
+            <div class="col-sm-9">
+                <input class="form-control " type="text" value="<%= currentUser.firstname %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Last Name:</label>
+                <div class="col-sm-9">
+                    <input class="form-control " type="text" value="<%= currentUser.lastname %>" readonly>
+                </div>
+                </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Email:</label>
+                <div class="col-sm-9">
+                    <input class="form-control " type="text" value="<%= currentUser.email %>" readonly>
+                </div>
+                </div>
+                
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Phone:</label>
+            <div class="col-sm-9">
+                <input class="form-control" type="text" value="<%= currentUser.phone %>" readonly>
+            </div>
+            </div>
+            
+            
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">L Address:</label>
+            <div class="col-sm-9">
+                <input class="form-control" type="text" value="<%= currentUser.laddress %>" readonly>
+            </div>
+            </div>
+            
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">P Address:</label>
+            <div class="col-sm-9">
+                <input class="form-control " type="text" value="<%= currentUser.paddress %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+                <label class="col-sm-3 col-form-label">Shift:</label>
+                <div class="col-sm-9">
+                    <input class="form-control " type="text" value="<%= currentUser.shift %>" readonly>
+                </div>
+                </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">GooglePay:</label>
+            <div class="col-sm-9">
+                <input name="gpay" class="form-control " type="text" value="<%= currentUser.gpay %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">PhonePe:</label>
+            <div class="col-sm-9">
+                <input name="phonepe" class="form-control " type="text" value="<%= currentUser.phonepe %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Paytm:</label>
+            <div class="col-sm-9">
+                <input name="paytm" class="form-control " type="text" value="<%= currentUser.paytm %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Bank Name:</label>
+            <div class="col-sm-9">
+                <input name="bankname" class="form-control " type="text" value="<%= currentUser.bankname %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Account:</label>
+            <div class="col-sm-9">
+                <input name="bankacc" class="form-control " type="text" value="<%= currentUser.bankacc %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Branch:</label>
+            <div class="col-sm-9">
+                <input name="bankbranch" class="form-control " type="text" value="<%= currentUser.bankbranch %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">IFSC:</label>
+            <div class="col-sm-9">
+                <input name="bankifsc" class="form-control " type="text" value="<%= currentUser.bankifsc %>" readonly>
+            </div>
+            </div>
+            <div class="form-group row form1">
+            <label class="col-sm-3 col-form-label">Beneficiary:</label>
+            <div class="col-sm-9">
+                <input name="bankbene" class="form-control " type="text" value="<%= currentUser.bankbene %>" readonly>
+            </div>
+            </div>
+            </form>
+    <% } %>
+    <% } else { %>
+        <div class="col-sm-9">
+        <p class="lead">Not Allowed</p>
+    </div>
+        <% }  %>
+    
+    
+
+
+
+<%- include("../partials/footer") %>

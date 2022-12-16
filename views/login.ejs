@@ -1,0 +1,13 @@
+<%- include("partials/header") %>
+
+<div class="toprow">
+<h3>Sign In</h3>
+
+<form action="/login" method="POST">
+    <input class="form-control auth" type="text" name="username" placeholder="Username">
+    <input class="form-control auth" type="password" name="password" placeholder="Password">
+    <button class="btn btn-primary">Login</button>
+</form>
+
+</div>
+<%- include("partials/footer") %>

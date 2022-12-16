@@ -1,0 +1,28 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="toprow">
+        <table class="table">
+        <tr>
+            <th>Region Code</th>
+            <th>Region Name</th>
+            <th>Country Name</th>
+        </tr>
+        <tr>
+            <td><%= xa %></td>
+            <td><%= xac %></td>
+            <td><%= xar %></td>
+        </tr>
+        </table>
+        <h3><%= xax %></h3>
+        <a href="changeip/location">
+            <button class="btn btn-danger btn-lg btn-pad">Change Location</button>  
+        </a>
+        <a href="changeip/ip">
+            <button class="btn btn-info btn-lg btn-pad">Change IP</button>  
+        </a>
+    
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

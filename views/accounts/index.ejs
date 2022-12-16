@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+<div class="col-sm-10">
+<% var total= cost[0].earning-costing %>
+<table class="table table-striped col-sm-9">
+    <th>Earning</th>
+    <th>Costing</th>
+    <th>Profit</th>
+    <tr>
+        <td><%= cost[0].earning %></td>
+        <td><%= costing %></td>
+        <td><%= total %></td>
+    </tr>
+</table>
+<hr>
+<table class="table table-striped col-sm-9">
+    <th>P/D Required In INR</th>
+    <th>P/D Required In USD</th>
+    <tr>
+        <% var ting = Math.round(costing/daysm); %>
+        <td><%= ting %></td>
+        <td><%= Math.round(ting/76) %></td>
+    </tr>
+</table>
+<hr>
+</div>
+
+
+
+
+    
+
+<%- include("../partials/footer") %>

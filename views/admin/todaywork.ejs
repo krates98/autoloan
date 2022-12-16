@@ -1,0 +1,49 @@
+<%- include("../partials/header") %>
+
+<% var counter = 0 %>
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <th>Username</th>
+                <th>Total</th>
+            </tr>
+            
+        <% for(var i=1;i<worker.length;i++){ %>
+            <tr>
+                <td><%= worker[i].username %></td>
+                <% today.forEach(function(campground,index){ %>
+                    <% if(worker[i].username === campground.username){ %>
+                    <%   counter++; %>
+                        <% } %>
+                <% })%>
+                <td><%= counter %></td>
+                <% counter = 0 %>
+        <% } %>
+            </tr>
+        </table>
+        <table class="table table-sm">
+            <tr>
+                <th>Count</th>
+                <th>Date</th>
+                <th>Username</th>
+                <th>IP</th>
+                <th>Time</th>
+            </tr>
+    <% today.forEach(function(campground,index){ %>
+        <tr>
+            <td><%= index+1 %></td>
+            <td><%= campground.date %></td>
+            <td><%= campground.username %></td>
+            <td><%= campground.ipaddress %></td>
+            <td><%= campground.time %></td>
+        </tr>
+    <% }); %>
+        </table>
+    </div>
+</div>
+
+
+    
+    
+ <%- include("../partials/footer") %>
+    
