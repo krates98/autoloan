@@ -82,10 +82,13 @@ router.post("/data/:id", async function (req, res) {
   //   var oneEmail = await Email.findOne(function (err, emails) {
   //     return emails;
   //   });
-
   var oneData = await Data.findById(req.params.id, function (err, alldata) {
     var today = new Date();
-    var birthDate = new Date(alldata.yyyy, alldata.mm - 1, alldata.dd);
+    var birthDate = new Date(
+      parseInt(alldata.yyyy),
+      parseInt(alldata.mm) - 1,
+      parseInt(alldata.dd)
+    );
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {

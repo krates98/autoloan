@@ -43,7 +43,7 @@
         <input
           class="form-control"
           type="text"
-          value="<%= usadata.phone %>"
+          value="<%= usadata.homephone %>"
           onclick="myFunction(3)"
           readonly
         />
@@ -55,19 +55,19 @@
         <input
           class="form-control phone"
           type="text"
-          value="<%= usadata.phone %>"
+          value="<%= usadata.homephone.substring(0, 3) %>"
           onclick="myFunction(4)"
           readonly />
         <input
           class="form-control phone"
           type="text"
-          value="<%= usadata.phone %>"
+          value="<%= usadata.homephone.substring(3, 6) %>"
           onclick="myFunction(5)"
           readonly />
         <input
           class="form-control phone"
           type="text"
-          value="<%= usadata.phone %>"
+          value="<%= usadata.homephone.substring(6, 10) %>"
           onclick="myFunction(6)"
           readonly />
       </div>
