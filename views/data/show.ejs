@@ -9,7 +9,8 @@
           type="text"
           value="<%= usadata.firstname %>"
           onclick="myFunction(0)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -20,7 +21,8 @@
           type="text"
           value="<%= usadata.lastname %>"
           onclick="myFunction(1)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -31,7 +33,8 @@
           type="text"
           value="<%= usadata.gender %>"
           onclick="myFunction(2)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -42,7 +45,8 @@
           type="text"
           value="<%= usadata.phone %>"
           onclick="myFunction(3)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -53,19 +57,22 @@
           type="text"
           value="<%= usadata.phone.substring(0, 3) %>"
           onclick="myFunction(4)"
-          readonly />
+          readonly
+        />
         <input
           class="form-control phone"
           type="text"
           value="<%= usadata.phone.substring(3, 6) %>"
           onclick="myFunction(5)"
-          readonly />
+          readonly
+        />
         <input
           class="form-control phone"
           type="text"
           value="<%= usadata.phone.substring(6, 10) %>"
           onclick="myFunction(6)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -76,7 +83,8 @@
           type="text"
           value="<%= usadata.zip %>"
           onclick="myFunction(7)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -87,7 +95,8 @@
           type="text"
           value="<%= usadata.address %>"
           onclick="myFunction(8)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -98,7 +107,8 @@
           type="text"
           value="<%= usadata.state %>"
           onclick="myFunction(9)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -109,45 +119,50 @@
           type="text"
           value="<%= usadata.city %>"
           onclick="myFunction(10)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
-      <label class="col-sm-3 col-form-label">DD/MM/YYYY</label>
-      <div class="col-sm-9">
+      <label class="col-sm-3 col-form-label">Date of Birth:</label>
+      <div class="col-sm-3">
         <input
-          id="myField"
-          class="form-control phone"
+          class="form-control dob"
           type="text"
-          value="<%= usadata.phone.substring(0, 3) %>"
+          value="<%= usadata.mm %>"
           onclick="myFunction(11)"
-          readonly />
+          readonly
+        />
+      </div>
+      <div class="col-sm-3">
         <input
-          id="myField2"
-          class="form-control phone"
+          class="form-control dob"
           type="text"
-          value="<%= usadata.phone.substring(3, 6) %>"
+          value="<%= usadata.dd %>"
           onclick="myFunction(12)"
-          readonly />
+          readonly
+        />
+      </div>
+      <div class="col-sm-3">
         <input
-          id="myField3"
-          class="form-control phone"
+          class="form-control dob"
           type="text"
-          value="<%= usadata.phone.substring(6, 10) %>"
+          value="<%= usadata.yyyy %>"
           onclick="myFunction(13)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
       <label class="col-sm-3 col-form-label">Age:</label>
       <div class="col-sm-9">
         <input
-          id="myField4"
-          class="form-control phone"
+          class="form-control"
           type="text"
-          value="<%= usadata.phone.substring(6, 10) %>"
+          value="<%= calculateAge(usadata.yyyy, usadata.mm, usadata.dd) %>"
           onclick="myFunction(14)"
-          readonly />
+          readonly
+        />
       </div>
     </div>
     <div class="form-group row form1">
@@ -158,7 +173,116 @@
           type="text"
           value="<%= usadata.email %>"
           onclick="myFunction(15)"
-          readonly />
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Residence Years:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.residenceyears %>"
+          onclick="myFunction(16)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Employer Years:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.employeryears %>"
+          onclick="myFunction(17)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Income:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.income %>"
+          onclick="myFunction(18)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Best Time to Contact:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.timetocontact %>"
+          onclick="myFunction(19)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Employer Name:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.employername %>"
+          onclick="myFunction(20)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Job Title:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.jobtitle %>"
+          onclick="myFunction(21)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Residence Cost:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.residencecost %>"
+          onclick="myFunction(22)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Bankruptcy:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.bankruptcy %>"
+          onclick="myFunction(23)"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Loan Type:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= usadata.loantype %>"
+          onclick="myFunction(24)"
+          readonly
+        />
       </div>
     </div>
     <hr />

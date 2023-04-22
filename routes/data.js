@@ -10,11 +10,11 @@ const express = require("express"),
 
 // Data Pages
 
-router.get("/data", middleware.isLoggedInUser, function (req, res) {
+router.get("/data", function (req, res) {
   res.render("data/notfound");
 });
 
-router.post("/data", middleware.isLoggedInUser, function (req, res) {
+router.post("/data", function (req, res) {
   var ip = req.clientIp;
   // request("http://api.ipstack.com/"+ ip +"?access_key=2b9734f1e27d53cbe77f447111dba11c").then((body) => {
   request("http://ip-api.com/json/" + ip)
@@ -41,12 +41,11 @@ router.post("/data", middleware.isLoggedInUser, function (req, res) {
               .add(5, "hours")
               .add(30, "m")
               .format("LTS");
-            var username = req.user.username;
+
             var ipcreate = {
               ipaddress: currentIp,
               date: datime,
               time: tatime,
-              username: username,
             };
             ipAdd.create(ipcreate, function (err) {
               if (err) {
@@ -70,11 +69,11 @@ router.post("/data", middleware.isLoggedInUser, function (req, res) {
 
 // Data Show Page
 
-router.get("/data/:id", middleware.isLoggedInUser, async function (req, res) {
+router.get("/data/:id", async function (req, res) {
   res.render("data/notfound");
 });
 
-router.post("/data/:id", middleware.isLoggedInUser, async function (req, res) {
+router.post("/data/:id", async function (req, res) {
   var counte = await Counter.find(function (err, result) {
     return result;
   });
@@ -139,7 +138,7 @@ router.post(
 );
 
 //Delete Fetched Data
-router.delete("/data/:id", middleware.isLoggedInUser, function (req, res) {
+router.delete("/data/:id", function (req, res) {
   res.redirect("/logout");
 });
 

@@ -16,7 +16,7 @@ var authRoutes = require("./routes/index"),
   accountRoutes = require("./routes/accounts");
 
 mongoose.connect(
-  "mongodb+srv://krates:suyash98@yelpcamp-rda1o.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://krates:suyash98@yelpcamp-rda1o.mongodb.net/autoloan?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 // mongoose.connect('mongodb://localhost:27017/techlab', { useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex: true});
@@ -60,7 +60,7 @@ app.use("/", adminRoutes);
 app.use("/", userRoutes);
 app.use("/", accountRoutes);
 
-// app.listen(3001, process.env.IP || "127.0.0.1", function () {
-app.listen(process.env.PORT, process.env.IP, function () {
+app.listen(3001, process.env.IP || "127.0.0.1", function () {
+  // app.listen(process.env.PORT, process.env.IP, function () {
   console.log("Techlab Server Has Started!");
 });
