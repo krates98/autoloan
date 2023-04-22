@@ -288,29 +288,10 @@
     <hr />
   </form>
 
-  <div class="row" id="fetchdata">
-    <form target="_blank" action="/data/second/<%= tdata._id %>" method="POST">
-      <button class="btn btn-info btn-lg btn-block fetch">Get New Data</button>
-    </form>
-    <hr />
 
-    <div class="row" id="fetchdata">
-      <form action="/logout" method="GET">
-        <button class="btn btn-primary btn-lg btn-block fetch">
-          Fetch New Data
-        </button>
-      </form>
-    </div>
 
     <!-- </div>  -->
-    <script>
-      function calculateAge(birthdate) {
-        var now = new Date();
-        var diff = now.getTime() - birthdate.getTime();
-        var ageDate = new Date(diff);
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-      }
-    </script>
+
     <script src="/js/copy.js"></script>
     <%- include("../partials/footer") %>
   </div>
