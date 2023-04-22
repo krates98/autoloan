@@ -84,41 +84,24 @@ router.post("/data/:id", async function (req, res) {
   //   });
 
   var oneData = await Data.findById(req.params.id, function (err, alldata) {
+    var today = new Date();
+    var birthDate = new Date(alldata.yyyy, alldata.mm - 1, alldata.dd);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    alldata.age = age;
     return alldata;
   });
-
-  // await Email.findByIdAndRemove(oneEmail.id, function(err){
-  //     console.log("delete email");
-  //   });
-  const newstate = oneData.state;
-
-  // var twoData = await Data.findById(req.params.id, function (err, alldata) {
-  //   return alldata;
-  // });
 
   await Data.findByIdAndRemove(req.params.id, function (err) {
     console.log("delete data");
   });
 
-  var twoData = await Data.findOne(
-    { state: newstate },
-    function (err, secdata) {
-      return secdata;
-    }
-  );
-
-  // await Data.findOneAndRemove({ state: oneData.state }, function (err) {
-  //   console.log("delete data");
-  // });
-
-  // var twoEmail = await Email.findOne(function (err, tmails) {
-  //   return tmails;
-  // });
-
   res.render("data/show", {
     usadata: oneData,
     counte,
-    tdata: twoData,
   });
 });
 
