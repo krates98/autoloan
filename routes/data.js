@@ -16,6 +16,7 @@ router.get("/data", function (req, res) {
 
 router.post("/data", function (req, res) {
   var ip = req.clientIp;
+  console.log(ip);
   // request("http://api.ipstack.com/"+ ip +"?access_key=2b9734f1e27d53cbe77f447111dba11c").then((body) => {
   request("http://ip-api.com/json/" + ip)
     .then((body) => {
