@@ -159,7 +159,7 @@
         <input
           class="form-control"
           type="text"
-          value="<%= calculateAge(usadata.yyyy, usadata.mm, usadata.dd) %>"
+          value="<%= calculateAge(new Date(usadata.yyyy, usadata.mm - 1, usadata.dd)) %>"
           onclick="myFunction(14)"
           readonly
         />
@@ -303,6 +303,14 @@
     </div>
 
     <!-- </div>  -->
+    <script>
+      function calculateAge(birthdate) {
+        var now = new Date();
+        var diff = now.getTime() - birthdate.getTime();
+        var ageDate = new Date(diff);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+      }
+    </script>
     <script src="/js/copy.js"></script>
     <%- include("../partials/footer") %>
   </div>
