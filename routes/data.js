@@ -83,10 +83,6 @@ router.post("/data/:id", async function (req, res) {
   //     return emails;
   //   });
   var oneData = await Data.findById(req.params.id, function (err, alldata) {
-    var birthYear = parseInt(alldata.yyyy);
-    var todayYear = new Date().getFullYear();
-    var age = todayYear - birthYear;
-    alldata.age = age;
     return alldata;
   });
 
