@@ -60,7 +60,7 @@ app.use("/", adminRoutes);
 app.use("/", userRoutes);
 app.use("/", accountRoutes);
 
-app.listen(3001, process.env.IP || "127.0.0.1", function () {
-  // app.listen(process.env.PORT, process.env.IP, function () {
+// app.listen(3001, process.env.IP || "127.0.0.1", function () {
+app.listen(process.env.PORT || 3001, process.env.IP, function () {
   console.log("Techlab Server Has Started!");
 });
