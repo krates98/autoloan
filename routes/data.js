@@ -83,17 +83,9 @@ router.post("/data/:id", async function (req, res) {
   //     return emails;
   //   });
   var oneData = await Data.findById(req.params.id, function (err, alldata) {
-    var today = new Date();
-    var birthDate = new Date(
-      parseInt(alldata.yyyy),
-      parseInt(alldata.mm) - 1,
-      parseInt(alldata.dd)
-    );
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
+    var birthYear = parseInt(alldata.yyyy);
+    var todayYear = new Date().getFullYear();
+    var age = todayYear - birthYear;
     alldata.age = age;
     return alldata;
   });
