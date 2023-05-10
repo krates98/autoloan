@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var dataSchema = new mongoose.Schema({
   firstname: String,
   lastname: String,
-  City: String,
+  city: String,
   state: String,
   address: String,
   zip: String,

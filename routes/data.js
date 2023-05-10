@@ -79,38 +79,21 @@ router.post("/data/:id", async function (req, res) {
     return result;
   });
 
-  //   var oneEmail = await Email.findOne(function (err, emails) {
-  //     return emails;
-  //   });
   var oneData = await Data.findById(req.params.id, function (err, alldata) {
     return alldata;
   });
 
-  await Data.findByIdAndRemove(req.params.id, function (err) {
-    console.log("delete data");
-  });
+  console.log(oneData);
+
+  // await Data.findByIdAndRemove(req.params.id, function (err) {
+  //   console.log("delete data");
+  // });
 
   res.render("data/show", {
     usadata: oneData,
     counte,
   });
 });
-
-router.post(
-  "/data/second/:id",
-  middleware.isLoggedInUser,
-  async function (req, res) {
-    var oneData = await Data.findById(req.params.id, function (err, alldata) {
-      return alldata;
-    });
-
-    await Data.findByIdAndRemove(req.params.id, function (err) {
-      console.log("delete second Data");
-    });
-
-    res.render("data/secondShow", { usadata: oneData });
-  }
-);
 
 //Delete Fetched Data
 router.delete("/data/:id", function (req, res) {

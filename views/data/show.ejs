@@ -3,7 +3,9 @@
   <form>
     <% Object.keys(usadata).forEach(function(key) { %>
     <div class="form-group row form1">
-      <label class="col-sm-3 col-form-label"><%= key %>:</label>
+      <label class="col-sm-3 col-form-label"
+        ><%= key.charAt(0).toUpperCase() + key.slice(1) %>:</label
+      >
       <div class="col-sm-9">
         <input
           class="form-control name"
