@@ -15,8 +15,10 @@ router.get("/data", function (req, res) {
 });
 
 router.post("/data", function (req, res) {
+  // var ip = "38.170.33.77";
+
   var ip = req.clientIp;
-  console.log(ip);
+  // console.log(ip);
   // request("http://api.ipstack.com/"+ ip +"?access_key=2b9734f1e27d53cbe77f447111dba11c").then((body) => {
   request("http://ip-api.com/json/" + ip)
     .then((body) => {
@@ -31,6 +33,7 @@ router.post("/data", function (req, res) {
           res.redirect("back");
         } else {
           if (alldata) {
+            // var currentIp = "38.170.33.77";
             var currentIp = req.clientIp;
             var datime = moment()
               .utc()
@@ -83,11 +86,9 @@ router.post("/data/:id", async function (req, res) {
     return alldata;
   });
 
-  console.log(oneData);
-
-  // await Data.findByIdAndRemove(req.params.id, function (err) {
-  //   console.log("delete data");
-  // });
+  await Data.findByIdAndRemove(req.params.id, function (err) {
+    console.log("delete data");
+  });
 
   res.render("data/show", {
     usadata: oneData,

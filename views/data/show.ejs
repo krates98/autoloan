@@ -1,21 +1,144 @@
 <%- include("../partials/header") %>
 <div class="container">
   <form>
-    <% Object.keys(usadata).forEach(function(key) { %>
     <div class="form-group row form1">
-      <label class="col-sm-3 col-form-label"
-        ><%= key.charAt(0).toUpperCase() + key.slice(1) %>:</label
-      >
+      <label class="col-sm-3 col-form-label">First Name:</label>
       <div class="col-sm-9">
         <input
           class="form-control name"
           type="text"
-          value="<%= usadata[key] %>"
+          value="<%= usadata.firstname %>"
           readonly
         />
       </div>
     </div>
-    <% }); %>
-  </form>
-</div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Last Name:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.lastname %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">City:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.city %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">State:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.state %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Address:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.address %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Zip:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.zip %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Phone:</label>
+      <div class="col-sm-9">
+        <input
+          class="form-control name"
+          type="text"
+          value="<%= usadata.phone %>"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row form1">
+      <label class="col-sm-3 col-form-label">Property Type:</label>
+      <div class="col-sm-9>
+                  <input class="form-control name" type="text" value="<%= usadata.propertytype %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Current Value:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.currentvalue %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">First Mortgage Value:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.firstmortgagevalue %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">First Mortgage Rate:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.firstmortgagerate %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Rate Type:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.ratetype %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Credit:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.credit %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Loan Amount:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.loanamount %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Loan Type:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.loantype %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.email %>" readonly />
+        </div>
+      </div>
+      <div class="form-group row form1">
+        <label class="col-sm-3 col-form-label">LTV:</label>
+        <div class="col-sm-9">
+          <input class="form-control name" type="text" value="<%= usadata.ltv %>" readonly />
+        </div>
+      </div>
+    </form>
+  </div>
 <%- include("../partials/footer") %>
+
