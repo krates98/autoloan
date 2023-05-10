@@ -24,8 +24,8 @@ router.get("/getip", async function (req, res) {
     const response = await axios.get(
       "http://info.proxy.abcproxy.com/extractProxyIp?regions=us&num=1&protocol=http&return_type=json&lh=1"
     );
-    const ip = response.data[0].ip;
-    const port = response.data[0].port;
+    const ip = response.data.data[0].ip;
+    const port = response.data.data[0].port;
     const ipPort = ip + ":" + port;
     res.render("getip", { ipPort });
   } catch (error) {
