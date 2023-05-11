@@ -1,11 +1,9 @@
 const express = require("express"),
   router = express.Router(),
   Data = require("../models/data"),
-  Email = require("../models/emails"),
   ipAdd = require("../models/ipaddress"),
   Counter = require("../models/counter"),
   request = require("request-promise"),
-  middleware = require("../middleware/"),
   moment = require("moment");
 
 // Data Pages

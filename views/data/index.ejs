@@ -1,25 +1,26 @@
 <%- include("../partials/header") %>
 
 <div class="container">
-    <div class="toprow">
-        <table class="table">
-            <tr>
-                <th>Region Code</th>
-                <th>Region Name</th>
-                <th>Country Name</th>
-            </tr>
-            <tr>
-                <td><%= xa %></td>
-                <td><%= xac %></td>
-                <td><%= xar %></td>
-            </tr>
-        </table>  
-                <hr>
-                <div class="databuttons"> 
-                <a href="/pages/" target="_blank"class="btn btn-info edit">Open Offers</a> 
-                <form action="/data/<%= alldata._id %>" method="POST"><button class="btn btn-primary">USE Data</button></form>
-                </div>
-                <hr>
+  <div class="toprow">
+    <table class="table">
+      <tr>
+        <th>Region Code</th>
+        <th>Region Name</th>
+        <th>Country Name</th>
+      </tr>
+      <tr>
+        <td><%= xa %></td>
+        <td><%= xac %></td>
+        <td><%= xar %></td>
+      </tr>
+    </table>
+    <hr />
+    <div class="databuttons">
+      <form action="/data/<%= alldata._id %>" method="POST">
+        <button class="btn btn-primary">USE Data</button>
+      </form>
     </div>
-</div>  
+    <hr />
+  </div>
+</div>
 <%- include("../partials/footer") %>
